@@ -1,9 +1,10 @@
 import React from "react";
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <>
-      <h1 className="text-6xl text-red-800">hello world</h1>
+      <Layout />
     </>
   );
 }
