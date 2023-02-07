@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setCity } from "../redux/reducers/reducer";
 
 import axios from "axios";
 
@@ -7,6 +9,7 @@ import { BiMap } from "react-icons/bi";
 
 const Navbar = () => {
   const [weather, setWeather] = useState([]);
+  const dispatch = useDispatch();
 
   const fetchApi = async (e) => {
     e.preventDefault();
@@ -24,12 +27,13 @@ const Navbar = () => {
       humidity: res.data.main.humidity,
       press: res.data.main.pressure,
     });
+    dispatch(setCity(res.data));
     console.log(res.data);
   };
 
-  //convert K to C
+  // convert K to C
   let k = weather.temp;
-  let c = k - 273.15;
+  let C = k - 273.15;
 
   return (
     <>
