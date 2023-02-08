@@ -1,15 +1,25 @@
 import React from "react";
 
+import { useSelector } from "react-redux";
+
 const Widget = () => {
+  const cities = useSelector((state) => state.data.weatherData);
+  console.log(cities);
+
+  let k = cities?.main?.temp;
+  let C = k - 273.15;
+  console.log(C);
+
   return (
     <>
       <div className="flex flex-col text-gray-700 my-2 mx-2">
         <div className="w-full max-w-screen-sm bg-base-100 shadow-xl p-10 rounded-xl ring-8 ring-white ring-opacity-40">
           <div className="flex justify-between">
             <div className="flex flex-col">
-              <span className="text-6xl font-bold">24°C</span>
+              <span className="text-6xl font-bold">{`${C.toFixed(2)}°C`}</span>
               <span className="font-semibold mt-1 text-gray-500">
-                Bogor, Indonesia
+                {/* Bogor, Indonesia */}
+                {cities.name}
               </span>
             </div>
             <svg

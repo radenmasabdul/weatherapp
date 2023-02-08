@@ -31,10 +31,6 @@ const Navbar = () => {
     console.log(res.data);
   };
 
-  // convert K to C
-  let k = weather.temp;
-  let C = k - 273.15;
-
   return (
     <>
       <div className="navbar bg-base-100">
