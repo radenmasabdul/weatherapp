@@ -4,11 +4,16 @@ import { useSelector } from "react-redux";
 
 const Widget = () => {
   const cities = useSelector((state) => state.data.weatherData);
-  console.log(cities);
+  const hourlyForecast = useSelector((state) => state.data.forecastData);
+  console.log("ini data redux cities" + cities);
+  console.log("ini data redux hourlyForecast" + hourlyForecast);
 
   let k = cities?.main?.temp;
   let C = k - 273.15;
-  console.log(C);
+  console.log("ini data suhu" + C);
+
+  let a = hourlyForecast[0]?.main?.temp;
+  let B = a - 273.15;
 
   return (
     <>
@@ -18,7 +23,6 @@ const Widget = () => {
             <div className="flex flex-col">
               <span className="text-6xl font-bold">{`${C.toFixed(2)}°C`}</span>
               <span className="font-semibold mt-1 text-gray-500">
-                {/* Bogor, Indonesia */}
                 {cities.name}
               </span>
             </div>
@@ -35,7 +39,9 @@ const Widget = () => {
           </div>
           <div className="flex justify-between mt-12">
             <div className="flex flex-col items-center">
-              <span className="font-semibold text-lg">24°C</span>
+              <span className="font-semibold text-lg">
+                {`${B.toFixed(2)}°C`}
+              </span>
               <svg
                 className="h-10 w-10 fill-current text-gray-400 mt-3"
                 xmlns="http://www.w3.org/2000/svg"
@@ -46,11 +52,15 @@ const Widget = () => {
                 <path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z" />
                 <path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z" />{" "}
               </svg>
-              <span className="font-semibold mt-1 text-sm">01:00</span>
-              <span className="text-xs font-semibold text-gray-400">AM</span>
+              <span className="font-semibold mt-1 text-sm">
+                {hourlyForecast[0]?.dt_txt}
+              </span>
+              {/* <span className="text-xs font-semibold text-gray-400">AM</span> */}
             </div>
             <div className="flex flex-col items-center">
-              <span className="font-semibold text-lg">23°C</span>
+              <span className="font-semibold text-lg">{`${B.toFixed(
+                2
+              )}°C`}</span>
               <svg
                 className="h-10 w-10 fill-current text-gray-400 mt-3"
                 xmlns="http://www.w3.org/2000/svg"
@@ -61,11 +71,15 @@ const Widget = () => {
                 <path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z" />
                 <path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z" />{" "}
               </svg>
-              <span className="font-semibold mt-1 text-sm">02:00</span>
-              <span className="text-xs font-semibold text-gray-400">AM</span>
+              <span className="font-semibold mt-1 text-sm">
+                {hourlyForecast[1]?.dt_txt}
+              </span>
+              {/* <span className="text-xs font-semibold text-gray-400">AM</span> */}
             </div>
             <div className="flex flex-col items-center">
-              <span className="font-semibold text-lg">23°C</span>
+              <span className="font-semibold text-lg">{`${B.toFixed(
+                2
+              )}°C`}</span>
               <svg
                 className="h-10 w-10 fill-current text-gray-400 mt-3"
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,11 +90,15 @@ const Widget = () => {
                 <path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z" />
                 <path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z" />{" "}
               </svg>
-              <span className="font-semibold mt-1 text-sm">03:00</span>
-              <span className="text-xs font-semibold text-gray-400">AM</span>
+              <span className="font-semibold mt-1 text-sm">
+                {hourlyForecast[2]?.dt_txt}
+              </span>
+              {/* <span className="text-xs font-semibold text-gray-400">AM</span> */}
             </div>
             <div className="flex flex-col items-center">
-              <span className="font-semibold text-lg">23°C</span>
+              <span className="font-semibold text-lg">{`${B.toFixed(
+                2
+              )}°C`}</span>
               <svg
                 className="h-10 w-10 fill-current text-gray-400 mt-3"
                 xmlns="http://www.w3.org/2000/svg"
@@ -91,11 +109,15 @@ const Widget = () => {
                 <path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z" />
                 <path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z" />{" "}
               </svg>
-              <span className="font-semibold mt-1 text-sm">04:00</span>
-              <span className="text-xs font-semibold text-gray-400">AM</span>
+              <span className="font-semibold mt-1 text-sm">
+                {hourlyForecast[3]?.dt_txt}
+              </span>
+              {/* <span className="text-xs font-semibold text-gray-400">AM</span> */}
             </div>
             <div className="flex flex-col items-center">
-              <span className="font-semibold text-lg">23°C</span>
+              <span className="font-semibold text-lg">{`${B.toFixed(
+                2
+              )}°C`}</span>
               <svg
                 className="h-10 w-10 fill-current text-gray-400 mt-3"
                 xmlns="http://www.w3.org/2000/svg"
@@ -114,8 +136,10 @@ const Widget = () => {
                   </g>
                 </g>
               </svg>
-              <span className="font-semibold mt-1 text-sm">05:00</span>
-              <span className="text-xs font-semibold text-gray-400">PM</span>
+              <span className="font-semibold mt-1 text-sm">
+                {hourlyForecast[4]?.dt_txt}
+              </span>
+              {/* <span className="text-xs font-semibold text-gray-400">PM</span> */}
             </div>
           </div>
         </div>
