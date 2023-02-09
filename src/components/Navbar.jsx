@@ -29,7 +29,7 @@ const Navbar = () => {
       press: res.data.main.pressure,
     });
     dispatch(setCity(res.data));
-    console.log("ini data weather" + res.data);
+    // console.log("ini data weather" + res.data);
   };
 
   const getForecast = async (e) => {
@@ -45,7 +45,7 @@ const Navbar = () => {
       dt_txt: res.data.list[0].clouds.dt_txt,
     });
     dispatch(setForecast(res.data.list));
-    console.log("ini data forecast" + res.data.list[0]);
+    // console.log("ini data forecast" + res.data.list[0]);
   };
 
   return (
