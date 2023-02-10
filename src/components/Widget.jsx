@@ -14,6 +14,15 @@ const Widget = () => {
   let a = hourlyForecast[0]?.main?.temp;
   let B = a - 273.15;
 
+  function formatAMPM(date) {
+    var time = new Date(date);
+    var strTime = time.toLocaleString("en-US", {
+      hour: "numeric",
+      hour12: true,
+    });
+    return strTime;
+  }
+
   return (
     <>
       <div className="flex flex-col text-gray-700 my-2 mx-2">
@@ -59,7 +68,7 @@ const Widget = () => {
                 <path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z" />{" "}
               </svg>
               <span className="font-semibold mt-1 text-sm text-center">
-                {hourlyForecast[0]?.dt_txt}
+                {formatAMPM(hourlyForecast[0]?.dt_txt)}
               </span>
             </div>
             <div className="flex flex-col items-center">
@@ -77,7 +86,7 @@ const Widget = () => {
                 <path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z" />{" "}
               </svg>
               <span className="font-semibold mt-1 text-sm text-center">
-                {hourlyForecast[1]?.dt_txt}
+                {formatAMPM(hourlyForecast[1]?.dt_txt)}
               </span>
             </div>
             <div className="flex flex-col items-center">
@@ -95,7 +104,7 @@ const Widget = () => {
                 <path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z" />{" "}
               </svg>
               <span className="font-semibold mt-1 text-sm text-center">
-                {hourlyForecast[2]?.dt_txt}
+                {formatAMPM(hourlyForecast[2]?.dt_txt)}
               </span>
             </div>
             <div className="flex flex-col items-center">
@@ -113,7 +122,7 @@ const Widget = () => {
                 <path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z" />{" "}
               </svg>
               <span className="font-semibold mt-1 text-sm text-center">
-                {hourlyForecast[3]?.dt_txt}
+                {formatAMPM(hourlyForecast[3]?.dt_txt)}
               </span>
             </div>
             <div className="flex flex-col items-center">
@@ -139,7 +148,7 @@ const Widget = () => {
                 </g>
               </svg>
               <span className="font-semibold mt-1 text-sm text-center">
-                {hourlyForecast[4]?.dt_txt}
+                {formatAMPM(hourlyForecast[4]?.dt_txt)}
               </span>
             </div>
           </div>
