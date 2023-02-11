@@ -1,26 +1,25 @@
 import React from "react";
 import Tab from "./Tab";
-import { Widget, WidgetOrderCity } from "./Widget";
+import { WidgetOrderCity } from "./Widget";
 
 const Content = () => {
   return (
     <>
-      <main className="mx-4 grid md:grid-cols-3 gap-4">
-        <article className="md:col-span-2 p-4">
-          <div className="grid grid-flow-col auto-cols-max">
-            <Tab />
-          </div>
-
-          {/* <section className="">
-            <div className="">
-              <Widget />
+      <main className="max-w-7xl mx-auto grid md:grid-flow-col gap-4">
+        <article className="md:grid-col-span-2 p-4">
+          <div className="grid md:grid-cols-1 gap-4 mt-4">
+            <div>
+              <Tab />
             </div>
-          </section> */}
+            {/* <div>
+              <Tab />
+            </div> */}
+          </div>
         </article>
 
-        <aside className="p-4">
-          {/* <p className="">Order Larger Cities</p>
-          <WidgetOrderCity /> */}
+        <aside className="md:grid-col-span-1 p-4">
+          <p className="">Order Larger Cities</p>
+          <WidgetOrderCity />
         </aside>
       </main>
     </>
