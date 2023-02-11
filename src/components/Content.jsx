@@ -11,11 +11,11 @@ const Content = () => {
             <Tab />
           </div>
 
-          <section className="">
+          {/* <section className="">
             <div className="">
               <Widget />
             </div>
-          </section>
+          </section> */}
         </article>
 
         <aside className="p-4">
