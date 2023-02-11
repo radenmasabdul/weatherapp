@@ -19,8 +19,8 @@ const Content = () => {
         </article>
 
         <aside className="p-4">
-          <p className="">Order Larger Cities</p>
-          <WidgetOrderCity />
+          {/* <p className="">Order Larger Cities</p>
+          <WidgetOrderCity /> */}
         </aside>
       </main>
     </>
