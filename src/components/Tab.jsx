@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Widget, WidgetTomorrow, Widget7Days } from "./Widget";
+import { Widget, WidgetTomorrow, Widget5Days } from "./Widget";
 
 const Tab = () => {
   const [tab, setTab] = useState("tab1");
@@ -14,12 +14,12 @@ const Tab = () => {
           Tomorrow
         </a>
         <a className="tab tab-lifted" onClick={() => setTab("tab3")}>
-          Next 7 days
+          Next 5 days
         </a>
 
         {tab === "tab1" && <Widget />}
         {tab === "tab2" && <WidgetTomorrow />}
-        {tab === "tab3" && <Widget7Days />}
+        {tab === "tab3" && <Widget5Days />}
       </div>
     </>
   );
